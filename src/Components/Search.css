@@ -1,0 +1,23 @@
+.search {
+    width: 700px;
+    padding-bottom: 15px;
+    margin: auto;
+}
+.search-video {
+    display: flex;
+}
+
+.all-videos {
+    display: flex;
+    justify-content: center;
+}
+.video-info {
+    width: 200px;
+    margin: 40px;
+}
+h1 {
+    text-align: center;
+}
+img {
+    width: 200px;
+}
