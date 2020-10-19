@@ -1,8 +1,10 @@
 import React from 'react';
+import Slider from "react-slick";
 import { Input, Button } from 'antd';
 import './Search.css'
 import { useState } from 'react';
-import {ImageVideo} from "./ImageVideo";
+import { VideoInformation} from "./VideoInformation";
+
 
 
 function SearchVideo () {
@@ -12,9 +14,8 @@ function SearchVideo () {
 
     const handleClick = (e) => {
         getVideos(currentVideo);
-        setCurrentVideo("");
+        setCurrentVideo(currentVideo);
     };
-
 
     const getVideos = async (currentVideo) => {
         const key = 'AIzaSyBXgYCGVA9SQA1MbFxDx3jSodEFYeZvzxs'
@@ -22,7 +23,7 @@ function SearchVideo () {
             key: key,
             type: 'video',
             part: 'snippet',
-            maxResults: '5',
+            maxResults: '50',
             q: currentVideo
         };
         let query = Object.keys(params)
@@ -33,55 +34,45 @@ function SearchVideo () {
             .then(data => data.json())
             .then((text) => {
                 const videos = text.items
-                for (const video of videos) {
-                    setVideos([...videos, video])
-                }
+                setVideos([...videos])
+
             }).catch(function (error) {
             console.log('request failed', error)
         });
     }
 
-    const getVideoss = async (currentVideo) => {
-        const key = 'AIzaSyCwTgH2E39qxv49Gk7Fqtoj_Eu2Pqvs6rE'
-        const url = `https://www.googleapis.com/youtube/v3/search?key=${key}&type=video&part=snippet&maxResults=15&q=${currentVideo}`
-        const xhr = new XMLHttpRequest()
-        xhr.addEventListener('load', () => {
-            // update the state of the component with the result here
-            //console.log(xhr.responseText)
-            setVideos([...videos, xhr.responseText])
-        })
-        xhr.open('GET', url)
-        xhr.send()
-
-        // try {
-        //     const response = await fetch(url, {
-        //         method: 'GET',
-        //         body: JSON.stringify({currentVideo}),
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //     })
-        //     const json = await response.json()
-        //     console.log(json)
-        //     //return json
-        //     setVideos([...videos, json])
-        // } catch (error) {
-        //     console.error('Ошибка:', error)
-        // }
+    const settings = {
+        dots: true,
+        dotsClass: "slick-dots slick-thumb",
+        infinite: true,
+        speed: 500,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        accessibility: true,
+        arrows: true,
+        useCSS: true,
+        customPaging: function(i) {
+            return (
+                <a className={'slider-pagination'}>{i + 1}</a>
+            );
+        },
     }
+
     return (
         <>
             <h1>YouTube client</h1>
             <div className={'search'}>
                 <div className={'search-video'}>
-                    <Input placeholder="enter some text.." value={currentVideo} onChange={e => {setCurrentVideo(e.target.value);}}/>
-                    <Button type="primary"  onClick={handleClick}>search video</Button>
+                    <Input placeholder="Enter some text.." value={currentVideo} onChange={e => {setCurrentVideo(e.target.value);}}/>
+                    <Button type="primary"  onClick={handleClick}>Search video</Button>
                 </div>
             </div>
             <div className={'all-videos'}>
+                <Slider {...settings} className={'slider'}>
                 {videos.map(video => (
-                    <ImageVideo video ={video} />
+                    <VideoInformation video ={video} />
                 ))}
+                </Slider>
             </div>
         </>
     )

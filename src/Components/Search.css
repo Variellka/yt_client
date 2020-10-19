@@ -1,3 +1,7 @@
+* {
+    background-color: darkgray;
+
+}
 .search {
     width: 700px;
     padding-bottom: 15px;
@@ -7,17 +11,24 @@
     display: flex;
 }
 
-.all-videos {
-    display: flex;
-    justify-content: center;
-}
 .video-info {
-    width: 200px;
-    margin: 40px;
+    width: 300px;
 }
 h1 {
     text-align: center;
+    color: darkred;
 }
 img {
-    width: 200px;
+    width: 300px;
+}
+.slider {
+    margin: 100px;
+    padding: 20px;
+}
+.slider-pagination {
+    font-size: 20px;
+    color: black;
+}
+.slick-dots:active {
+    color: #881798;
 }
