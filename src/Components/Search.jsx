@@ -5,8 +5,6 @@ import './Search.css'
 import { useState } from 'react';
 import { VideoInformation} from "./VideoInformation";
 
-
-
 function SearchVideo () {
 
     const [currentVideo, setCurrentVideo] = useState("");
@@ -35,7 +33,6 @@ function SearchVideo () {
             .then((text) => {
                 const videos = text.items
                 setVideos([...videos])
-
             }).catch(function (error) {
             console.log('request failed', error)
         });
@@ -59,12 +56,12 @@ function SearchVideo () {
     }
 
     return (
-        <>
-            <h1>YouTube client</h1>
+        <div className={'video-app'}>
+
             <div className={'search'}>
                 <div className={'search-video'}>
-                    <Input placeholder="Enter some text.." value={currentVideo} onChange={e => {setCurrentVideo(e.target.value);}}/>
-                    <Button type="primary"  onClick={handleClick}>Search video</Button>
+                    <Input  placeholder="Enter some text.." value={currentVideo} onChange={e => {setCurrentVideo(e.target.value);}}/>
+                    <Button  type="primary" danger onClick={handleClick}><span className={'button-search'}>Search video</span></Button>
                 </div>
             </div>
             <div className={'all-videos'}>
@@ -74,7 +71,7 @@ function SearchVideo () {
                 ))}
                 </Slider>
             </div>
-        </>
+        </div>
     )
 }
 

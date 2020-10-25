@@ -1,34 +1,119 @@
-* {
-    background-color: darkgray;
-
+body {
+    background: url("../Images/back.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 .search {
     width: 700px;
-    padding-bottom: 15px;
-    margin: auto;
+    margin: 60px auto;
 }
 .search-video {
     display: flex;
 }
 
-.video-info {
-    width: 300px;
-}
 h1 {
     text-align: center;
     color: darkred;
 }
 img {
-    width: 300px;
+    width: 270px;
 }
 .slider {
     margin: 100px;
     padding: 20px;
 }
+
 .slider-pagination {
     font-size: 20px;
-    color: black;
+    color: white;
+    font-weight: 600;
 }
 .slick-dots:active {
     color: #881798;
 }
+.button-search {
+    font-size: 15px;
+    font-weight: 600;
+}
+.flip-container, .front, .back {
+    width: 300px;
+    height: 450px;
+    border-radius: 20px;
+}
+/*.flip-container:hover .flipper {*/
+/*    transform: rotateY(180deg);*/
+/*}*/
+ .flip-container.flip .flipper {
+    transform: rotateY(180deg);
+}
+
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+.flip-container {
+    perspective: 1000;
+}
+
+.front, .back {
+    backface-visibility: hidden;
+    background-color: burlywood;
+    border: gray 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px;
+}
+.front {
+    z-index: 2;
+}
+.back {
+    transform: rotateY(180deg);
+}
+.image-and-title {
+    width: 270px;
+    height: 200px;
+    position: absolute;
+    overflow: hidden;
+}
+.video-title-block {
+    width: 300px;
+    top: 70px;
+    left: -8px;
+    background-color: rgba(0, 120, 201, 0.7);
+    position: absolute;
+    overflow: hidden;
+    transform: rotate(8deg);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+}
+.video-title {
+    width: 260px;
+    margin: 0;
+    color: white;
+    padding: 0 40px;
+}
+.video-button {
+    width: 100%;
+    color: white;
+    background-color: #B22222;
+    border: none;
+    height: 50px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.video-info-block {
+    margin-top: 250px;
+}
+.video-info {
+    margin: 20px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+
