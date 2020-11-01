@@ -150,3 +150,10 @@ button:active, button:focus {
     height: 25px;
     margin-right: 10px;
 }
+.slick-dots {
+    margin: 0;
+    top: 420px;
+}
+.slider-pagination.active, .slider-pagination:focus, .slider-pagination:hover {
+    color: darkred;
+}
