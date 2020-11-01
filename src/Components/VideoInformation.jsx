@@ -1,5 +1,7 @@
 import React from 'react';
 import './Search.css'
+import person from '../Images/person.png'
+import calendar from '../Images/calendar.png'
 
 export const VideoInformation = ({video}) => {
     const videoImage = video.snippet.thumbnails.high.url
@@ -27,8 +29,12 @@ export const VideoInformation = ({video}) => {
                         </div>
                     </div>
                     <div className={'video-info-block'}>
-                        <p className={'video-info'}>{videoAuthor}</p>
-                        <p className={'video-info'}>{videoDateParse}</p>
+                        <div className={'person-block'}>
+                            <img src={person} className={'person-img'}/><p className={'video-info'}>{videoAuthor}</p>
+                        </div>
+                        <div className={'person-block'}>
+                            <img src={calendar} className={'person-img'}/><p className={'video-info'}>{videoDateParse}</p>
+                        </div>
                     </div>
                     <button className={'video-button'} onClick={handleClick}>Description</button>
                 </div>

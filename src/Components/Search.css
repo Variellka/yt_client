@@ -21,9 +21,10 @@ img {
 }
 .slider {
     margin: 100px;
-    padding: 20px;
+    /*padding: 20px;*/
 }
 .slider-pagination {
+    margin-top: 20px;
     font-size: 20px;
     color: white;
     font-weight: 600;
@@ -49,7 +50,7 @@ img {
     position: relative;
 }
 .flip-container {
-    perspective: 1000;
+    margin: auto;
 }
 .front, .back {
     backface-visibility: hidden;
@@ -106,7 +107,6 @@ img {
     margin-top: 220px;
 }
 .video-info {
-    margin: 20px;
     font-weight: 700;
     font-size: 16px;
 }
@@ -141,4 +141,12 @@ img {
 }
 button:active, button:focus {
     outline: none;
+}
+.person-block {
+    display: flex;
+}
+.person-img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
 }
