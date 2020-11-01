@@ -1,6 +1,5 @@
 import React from 'react';
 import Slider from "react-slick";
-import { Input, Button } from 'antd';
 import './Search.css'
 import { useState } from 'react';
 import { VideoInformation} from "./VideoInformation";
@@ -60,8 +59,8 @@ function SearchVideo () {
 
             <div className={'search'}>
                 <div className={'search-video'}>
-                    <Input  placeholder="Enter some text.." value={currentVideo} onChange={e => {setCurrentVideo(e.target.value);}}/>
-                    <Button  type="primary" danger onClick={handleClick}><span className={'button-search'}>Search video</span></Button>
+                    <input className={'search-input'} placeholder="Enter some text.." value={currentVideo} onChange={e => {setCurrentVideo(e.target.value);}}/>
+                    <button className={'search-button'} onClick={handleClick}><span className={'button-search'}>Search video</span></button>
                 </div>
             </div>
             <div className={'all-videos'}>

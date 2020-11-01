@@ -10,8 +10,10 @@ export const VideoInformation = ({video}) => {
     const videoPublished = video.snippet.publishedAt
     const videoDateParse = new Date(Date.parse(videoPublished)).toString().slice(4, 15);
 
-    const handleClick = () => {
-        document.querySelector('.flip-container').classList.toggle('flip')
+    const handleClick = (event) => {
+        const target = event.target;
+        const parent = target.parentElement
+        parent.parentElement.classList.toggle('flip')
     }
 
     return (
@@ -31,9 +33,11 @@ export const VideoInformation = ({video}) => {
                     <button className={'video-button'} onClick={handleClick}>Description</button>
                 </div>
                 <div className={'back'}>
-                    <p>{videoDescription}</p>
-                    <a href={`https://www.youtube.com/watch?v=${videoURL}`} target={'blank'}>Watch full video</a>
-                    <button className={'video-button'}>Back</button>
+                    <div className={'video-info-back-block'}>
+                        <p className={'video-description'}>{videoDescription}</p>
+                        <a href={`https://www.youtube.com/watch?v=${videoURL}`} target={'blank'}>Watch full video</a>
+                    </div>
+                    <button className={'video-button'} onClick={handleClick}>Back</button>
                 </div>
             </div>
         </div>
