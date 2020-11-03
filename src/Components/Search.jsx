@@ -3,39 +3,16 @@ import Slider from "react-slick";
 import './Search.css'
 import { useState } from 'react';
 import { VideoInformation} from "./VideoInformation";
+import { getVideos } from "../Requests/requests"
 
 function SearchVideo () {
-
     const [currentVideo, setCurrentVideo] = useState("");
     const [videos, setVideos] = useState([]);
 
     const handleClick = (e) => {
-        getVideos(currentVideo);
+        getVideos(currentVideo).then((videos)=>setVideos([...videos.items]))
         setCurrentVideo(currentVideo);
     };
-
-    const getVideos = async (currentVideo) => {
-        const key = 'AIzaSyBXgYCGVA9SQA1MbFxDx3jSodEFYeZvzxs'
-        let params = {
-            key: key,
-            type: 'video',
-            part: 'snippet',
-            maxResults: '50',
-            q: currentVideo
-        };
-        let query = Object.keys(params)
-            .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
-            .join('&');
-        let url = 'https://www.googleapis.com/youtube/v3/search?' + query;
-        fetch(url)
-            .then(data => data.json())
-            .then((text) => {
-                const videos = text.items
-                setVideos([...videos])
-            }).catch(function (error) {
-            console.log('request failed', error)
-        });
-    }
 
     const settings = {
         dots: true,
@@ -56,7 +33,6 @@ function SearchVideo () {
 
     return (
         <div className={'video-app'}>
-
             <div className={'search'}>
                 <div className={'search-video'}>
                     <input className={'search-input'} placeholder="Enter some text.." value={currentVideo} onChange={e => {setCurrentVideo(e.target.value);}}/>
