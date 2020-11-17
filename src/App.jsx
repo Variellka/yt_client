@@ -1,9 +1,9 @@
 import React from 'react';
-import SearchVideo from "./Components/Search";
+import MainPage from "./Pages/MainPage";
 
 function App() {
   return (
-        <SearchVideo />
+        <MainPage />
   );
 }
 

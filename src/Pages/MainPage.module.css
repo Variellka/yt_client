@@ -1,0 +1,69 @@
+body {
+    background: url("../Images/back.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+.search {
+    width: 700px;
+    margin: 60px auto;
+}
+.search_video {
+    display: flex;
+    height: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+h1 {
+    text-align: center;
+    color: darkred;
+}
+
+.slider {
+    margin: 100px;
+}
+.slider_pagination {
+    margin-top: 20px;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+}
+.slick-dots:active {
+    color: #881798;
+}
+.button_search {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.search_button {
+    color: white;
+    background-color: #B22222;
+    border: none;
+    width: 150px;
+    outline: none;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.search_button:focus {
+    background-color: darkred;
+}
+.search_input {
+    width: 550px;
+    padding: 10px;
+    outline: none;
+}
+.search_button:hover {
+    background-color: darkred;
+}
+button:active, button:focus {
+    outline: none;
+}
+.slider_pagination {
+    margin-top: 20px;
+}
+.slick_dots {
+    margin: 0;
+    top: 420px;
+}
+.slider_pagination.active, .slider_pagination:focus, .slider_pagination:hover {
+    color: darkred;
+}
