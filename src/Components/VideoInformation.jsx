@@ -1,8 +1,9 @@
 import React from 'react';
-import './Search.css'
-import person from '../Images/person.png'
-import calendar from '../Images/calendar.png'
-import { makeAFlip } from "../Requests/requests"
+import s from './VideoInformation.module.css';
+import person from '../Images/person.svg';
+import calendar from '../Images/calendar.svg';
+import { makeAFlip } from "../Requests/requests";
+import './justFlip.css'
 
 export const VideoInformation = ({video}) => {
 
@@ -15,31 +16,31 @@ export const VideoInformation = ({video}) => {
     const videoDateParse = new Date(Date.parse(videoPublished)).toString().slice(4, 15);
 
     return (
-        <div className={'flip-container'}>
-            <div className={'flipper'}>
-                <div className={'front'}>
-                    <div className={'image-and-title'}>
-                        <img src={videoImage}/>
-                        <div className={'video-title-block'}>
-                            <p className={'video-title'}>{videoTitle}</p>
+        <div className={s.flip_container}>
+            <div className={s.flipper}>
+                <div className={s.front}>
+                    <div className={s.image_and_title}>
+                        <img src={videoImage} alt={s.video_image}/>
+                        <div className={s.video_title_block}>
+                            <p className={s.video_title}>{videoTitle}</p>
                         </div>
                     </div>
-                    <div className={'video-info-block'}>
-                        <div className={'person-block'}>
-                            <img src={person} className={'person-img'}/><p className={'video-info'}>{videoAuthor}</p>
+                    <div className={s.video_info_block}>
+                        <div className={s.person_block}>
+                            <img src={person} className={s.person_img} alt={'video-author'}/><p className={s.video_info}>{videoAuthor}</p>
                         </div>
-                        <div className={'person-block'}>
-                            <img src={calendar} className={'person-img'}/><p className={'video-info'}>{videoDateParse}</p>
+                        <div className={s.person_block}>
+                            <img src={calendar} className={s.person_img} alt={'video-date'}/><p className={s.video_info}>{videoDateParse}</p>
                         </div>
                     </div>
-                    <button className={'video-button'} onClick={makeAFlip}>Description</button>
+                    <button className={s.video_button} onClick={makeAFlip}>Description</button>
                 </div>
-                <div className={'back'}>
-                    <div className={'video-info-back-block'}>
-                        <p className={'video-description'}>{videoDescription}</p>
+                <div className={s.back}>
+                    <div className={s.video_info_back_block}>
+                        <p className={s.video_description}>{videoDescription}</p>
                         <a href={`https://www.youtube.com/watch?v=${videoURL}`} target={'blank'}>Watch full video</a>
                     </div>
-                    <button className={'video-button'} onClick={makeAFlip}>Back</button>
+                    <button className={s.video_button} onClick={makeAFlip}>Back</button>
                 </div>
             </div>
         </div>

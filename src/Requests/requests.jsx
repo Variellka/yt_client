@@ -1,5 +1,6 @@
+import { key } from "./key";
+
 export const getVideos = async (currentVideo) => {
-    const key = 'AIzaSyBXgYCGVA9SQA1MbFxDx3jSodEFYeZvzxs'
     let params = {
         key: key,
         type: 'video',
